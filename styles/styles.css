@@ -1,0 +1,222 @@
+:root {
+    --primary-color: #1a1a2e; /* Azul oscuro/noche */
+    --secondary-color: #16213e; /* Azul medio */
+    --accent-color: #0f3460; /* Azul más claro */
+    --highlight-color: #e94560; /* Rojo/rosa para destacar */
+    --text-color: #f1f1f1; /* Texto claro */
+    --code-bg: #0a0a1a; /* Fondo para bloques de código */
+}
+
+[data-theme="light"] {
+    --primary-color: #f8f9fa;
+    --secondary-color: #e9ecef;
+    --accent-color: #dee2e6;
+    --highlight-color: #d90429;
+    --text-color: #212529;
+    --code-bg: #e9ecef;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Fira Code', 'Courier New', monospace;
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    padding: 20px;
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 2rem;
+    text-align: center;
+    padding: 1rem;
+    background-color: var(--secondary-color);
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.profile-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid var(--highlight-color);
+    margin-bottom: 1rem;
+}
+
+h1 {
+    color: var(--highlight-color);
+    margin-bottom: 0.5rem;
+}
+
+.bio {
+    max-width: 600px;
+    margin: 0 auto 1rem;
+    font-size: 1.1rem;
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.social-links a {
+    color: var(--text-color);
+    font-size: 1.5rem;
+    transition: color 0.3s;
+}
+
+.social-links a:hover {
+    color: var(--highlight-color);
+}
+
+/* Secciones */
+.section {
+    background-color: var(--secondary-color);
+    padding: 1.5rem;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.section-title {
+    color: var(--highlight-color);
+    margin-bottom: 1rem;
+    border-bottom: 2px solid var(--accent-color);
+    padding-bottom: 0.5rem;
+}
+
+/* Tarjetas de repositorios */
+.repo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.repo-card {
+    background-color: var(--accent-color);
+    border-radius: 8px;
+    padding: 1.2rem;
+    transition: transform 0.3s, box-shadow 0.3s;
+    border-left: 4px solid var(--highlight-color);
+}
+
+.repo-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.repo-title {
+    color: var(--highlight-color);
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+}
+
+.repo-description {
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+}
+
+.repo-stats {
+    display: flex;
+    gap: 1rem;
+    font-size: 0.9rem;
+    color: var(--text-color);
+    opacity: 0.8;
+}
+
+.repo-language {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+
+/* Estilo especial para writeups de CTF */
+.ctf-writeup {
+    background-color: var(--code-bg);
+    border-left: 4px solid #4cc9f0;
+}
+
+.ctf-writeup .repo-title {
+    color: #4cc9f0;
+}
+
+.ctf-tag {
+    display: inline-block;
+    background-color: #4cc9f0;
+    color: var(--primary-color);
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Estilo para proyectos */
+.project-card {
+    border-left: 4px solid #f72585;
+}
+
+.project-card .repo-title {
+    color: #f72585;
+}
+
+.project-tag {
+    display: inline-block;
+    background-color: #f72585;
+    color: var(--primary-color);
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Pie de página */
+.footer {
+    text-align: center;
+    padding: 1rem;
+    margin-top: 2rem;
+    font-size: 0.9rem;
+    color: var(--text-color);
+    opacity: 0.7;
+}
+
+/* Tema oscuro/claro */
+.theme-switch {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: var(--secondary-color);
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 100;
+}
+
+.theme-switch i {
+    font-size: 1.5rem;
+    color: var(--highlight-color);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .repo-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .header {
+        padding: 1rem 0.5rem;
+    }
+}
